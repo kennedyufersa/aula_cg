@@ -1,9 +1,11 @@
 # Instruções para compilação
+
+Criação de uma tela com fundo azul e um pixel pintado de preto na posicao (10, 10).
 > gcc -o main imagem.c
 
-> ./main > imagem.ppm
+> ./main 10 10 > imagem.ppm
 
-A imagem estará na pasta.
+
 
 # Extensão para visualização
 
