@@ -1,5 +1,6 @@
 //https://github.com/kennedyufersa/aula_cg/
 #include <stdio.h>
+#include <stdlib.h>
 #define width 400
 #define height 300
 #define MAX_COLOR 256
@@ -13,10 +14,21 @@ typedef struct Pixel{
 pixel imagem[width][height];
 
 void criarTela(cor background);
+void criarPonto(int x, int y, cor corPonto);
+
 void show();
 
-int main(){
-    criarTela((cor){100, 100, 200});
+cor corTela =  (cor){100,100,200};
+cor preto = (cor) {0,0,0};
+
+int main(int argc, char *argv[]){
+
+    int x = atoi(argv[1]);
+    int y = atoi(argv[2]);
+
+    criarTela(corTela);
+    criarPonto(x,y, preto);
+    
     show();
 }
 
