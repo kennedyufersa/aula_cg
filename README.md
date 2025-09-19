@@ -1,9 +1,10 @@
 # Instruções para compilação
 
-Criação de uma tela com fundo azul e um pixel pintado de preto na posicao (10, 10).
+Criação de um ponto no centro da tela
+
 > gcc -o main imagem.c
 
-> ./main 10 10 > imagem.ppm
+> ./main 15 20
 
 
 
