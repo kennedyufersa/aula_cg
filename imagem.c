@@ -11,7 +11,7 @@ typedef struct Pixel{
     int b;
 }pixel, cor;
 
-pixel imagem[width][height];
+pixel imagem[height][width];
 
 void criarTela(cor background);
 void criarPonto(int x, int y, cor corPonto);
