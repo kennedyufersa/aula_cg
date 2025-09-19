@@ -16,7 +16,8 @@ pixel imagem[width][height];
 void criarTela(cor background);
 void criarPonto(int x, int y, cor corPonto);
 
-void show();
+// void show();
+void criarArquivo();
 
 cor corTela =  (cor){100,100,200};
 cor preto = (cor) {0,0,0};
@@ -29,7 +30,7 @@ int main(int argc, char *argv[]){
     criarTela(corTela);
     criarPonto(x,y, preto);
 
-    show();
+    criarArquivo();
 }
 
 void criarTela(cor background){
@@ -49,11 +50,28 @@ void show(){
     for (size_t i = 0; i < height; i++){
         for (size_t j = 0; j < width; j++){
             aux = imagem[i][j];
-            printf("%d %d %d\n", aux.r, aux.g, aux.b);
+            printf(" %d %d %d", aux.r, aux.g, aux.b);
         }
+        printf("\n");
     }
 }
 
 void criarPonto(int x, int y, cor c){
     imagem[x][y] = c;
+}
+
+void criarArquivo(){
+     //Cabeçalho
+    FILE *f = fopen("imagem.ppm", "w");
+    fprintf(f, "P3\n");
+    fprintf(f, "%d %d\n", width, height);
+    fprintf(f, "%d\n", MAX_COLOR);
+    cor aux;
+    for (size_t i = 0; i < height; i++){
+        for (size_t j = 0; j < width; j++){
+            aux = imagem[i][j];
+            fprintf(f, " %d %d %d", aux.r, aux.g, aux.b);
+        }
+        fprintf(f, "\n");
+    }   
 }
