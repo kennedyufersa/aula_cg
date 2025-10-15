@@ -44,7 +44,7 @@ cor azul = (cor){0,0,200};
 
 void criarFigura() {
   int L = 50;
-  criarRetangulo((Ponto){10,10}, (Ponto){10+L, 50+L}, azul);
+  criarRetangulo((Ponto){10,10}, (Ponto){10+L, 10+L}, azul);
 }
 
 ponto imgObj(ponto pMundo, ponto origem) {
