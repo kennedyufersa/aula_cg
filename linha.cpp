@@ -25,9 +25,9 @@ void criarLinha(ponto, ponto, cor);
 void criarRetangulo(ponto, ponto, cor);
 void criarTriangulo(ponto, ponto, ponto, cor);
 void criarQuadrado(ponto pos, int L);
-ponto
-    imgObj(ponto,
-           ponto); // Converter coordenadas do mundo para coordenadas da imagem
+void criarTile(ponto P);
+
+ponto imgObj(ponto, ponto); // Converter coordenadas do mundo para coordenadas da imagem
 
 void criarFigura();
 void printImagem();
@@ -36,6 +36,7 @@ void salvarImagem();
 cor background = (cor){155,155,155};
 cor azulClaro = (cor){100, 149, 237};
 
+int L = 30;
 int main() {
   criarTela(background);
   criarFigura();
@@ -44,9 +45,12 @@ int main() {
 cor azul = (cor){0,0,200};
 
 void criarFigura() {
-  int L = 50;
-  criarQuadrado(Ponto {0,0}, L);
+  Ponto p1 = (ponto){10,10};
+  Ponto p2 = {p1.x, p1.y + L};
+  criarTile(p1);
+  criarTile(p2);
 }
+
 
 
 ponto imgObj(ponto pMundo, ponto origem) {
@@ -65,6 +69,10 @@ void criarQuadrado(ponto pos, int L){
   ponto p1 = pos;
   ponto p2 = (Ponto){pos.x + L, pos.y + L};
   criarRetangulo(p1, p2, azul);
+}
+
+void criarTile(ponto P){
+  criarQuadrado(P, L);
 }
 
 void criarTela(cor background) {
