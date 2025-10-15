@@ -45,10 +45,21 @@ int main() {
 cor azul = (cor){0,0,200};
 
 void criarFigura() {
-  Ponto p1 = (ponto){10,10};
-  Ponto p2 = {p1.x, p1.y + L};
+  ponto origem = {200,100};
+  // Ponto p1 = imgObj((Ponto){10,10}, origem);
+  // Ponto p2 = imgObj((Ponto){p1.x, p1.y + L}, origem);
+  Ponto p1 = (Ponto){0, 0};
+  Ponto p2 = (Ponto){0, L};
+  Ponto p3 = (Ponto){L, L};
+  Ponto p4 = (Ponto){L, 0};
+  Ponto p5 = (Ponto){2*L, 0};
+  Ponto p6 = (Ponto){3*L, 0};
   criarTile(p1);
   criarTile(p2);
+  criarTile(p3);
+  criarTile(p4);
+  criarTile(p5);
+  criarTile(p6);
 }
 
 
