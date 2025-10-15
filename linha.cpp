@@ -26,6 +26,7 @@ void criarRetangulo(ponto, ponto, cor);
 void criarTriangulo(ponto, ponto, ponto, cor);
 void criarQuadrado(ponto pos, int L);
 void criarTile(ponto P);
+void criarPoligono(int, Ponto*, cor);
 
 ponto imgObj(ponto, ponto); // Converter coordenadas do mundo para coordenadas da imagem
 
@@ -58,6 +59,10 @@ void criarFigura() {
   criarTile(imgObj(p4, origem));
   criarTile(imgObj(p5, origem));
   criarTile(imgObj(p6, origem));
+}
+
+void criarPoligono(int n, Ponto* pontos, cor c){
+
 }
 
 ponto imgObj(ponto pMundo, ponto origem) {
