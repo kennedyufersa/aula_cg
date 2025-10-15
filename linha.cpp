@@ -28,42 +28,23 @@ ponto
     imgObj(ponto,
            ponto); // Converter coordenadas do mundo para coordenadas da imagem
 
-void criarFigura(float, int, int);
+void criarFigura();
 void printImagem();
 void salvarImagem();
 
-cor background = (cor){200, 200, 200};
-ponto p = (ponto){150, 200};
+cor background = (cor){155,155,155};
 cor azulClaro = (cor){100, 149, 237};
 
-int main(char argc, char const *argv[]) {
+int main() {
   criarTela(background);
-  criarFigura(atof(argv[1]), 500, 400);
+  criarFigura();
   salvarImagem();
 }
+cor azul = (cor){0,0,200};
 
-void criarFigura(float alpha, int l, int h) {
-  if (l >= WIDTH && h >= HEIGHT) {
-    return;
-  }
-  alpha = alpha * pi / 180;
-  float alphaMax = atan(h / (float)l);
-  float alphaMin = 0;
-  if (alpha < alphaMin || alpha > alphaMax) {
-    return;
-  }
-  // Centralizando a figura na tela
-  ponto T = (ponto){(WIDTH - l) / 2, (HEIGHT - h) / 2};
-  // Criando o retângulo
-  ponto pRet1 = imgObj((ponto){0, 0}, T);
-  ponto pRet2 = imgObj((ponto){l, h}, T);
-  criarRetangulo(pRet1, pRet2, azulClaro);
-  // Criando o triângulo
-  ponto p1 = imgObj((ponto){0, 0}, T);
-  ponto p2 = imgObj((ponto){l, l * tan(alpha)}, T);
-  float x = l * (1 + tan(alpha) * tan(alpha)) - h * tan(alpha);
-  ponto p3 = imgObj((ponto){x, h}, T);
-  criarTriangulo(p1, p2, p3, azulClaro);
+void criarFigura() {
+  int L = 50;
+  criarRetangulo((Ponto){10,10}, (Ponto){10+L, 50+L}, azul);
 }
 
 ponto imgObj(ponto pMundo, ponto origem) {
