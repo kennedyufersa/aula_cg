@@ -1,8 +1,8 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define WIDTH 800
-#define HEIGHT 800
+#define WIDTH 400
+#define HEIGHT 300
 #define MAX_COLOR 255
 #define pi 3.141592653589793
 
@@ -24,6 +24,7 @@ void criarPonto(ponto, cor);
 void criarLinha(ponto, ponto, cor);
 void criarRetangulo(ponto, ponto, cor);
 void criarTriangulo(ponto, ponto, ponto, cor);
+void criarQuadrado(ponto pos, int L);
 ponto
     imgObj(ponto,
            ponto); // Converter coordenadas do mundo para coordenadas da imagem
@@ -44,8 +45,9 @@ cor azul = (cor){0,0,200};
 
 void criarFigura() {
   int L = 50;
-  criarRetangulo((Ponto){10,10}, (Ponto){10+L, 10+L}, azul);
+  criarQuadrado(Ponto {0,0}, L);
 }
+
 
 ponto imgObj(ponto pMundo, ponto origem) {
   ponto pImg;
@@ -57,6 +59,12 @@ void criarTriangulo(ponto p1, ponto p2, ponto p3, cor corTriangulo) {
   criarLinha(p1, p2, corTriangulo);
   criarLinha(p2, p3, corTriangulo);
   criarLinha(p1, p3, corTriangulo);
+}
+
+void criarQuadrado(ponto pos, int L){
+  ponto p1 = pos;
+  ponto p2 = (Ponto){pos.x + L, pos.y + L};
+  criarRetangulo(p1, p2, azul);
 }
 
 void criarTela(cor background) {
