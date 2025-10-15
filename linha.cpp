@@ -47,22 +47,33 @@ cor azul = (cor){0,0,200};
 
 void criarFigura() {
   ponto origem = {50,50};
-  Ponto p1 = (Ponto){0, 0};
-  Ponto p2 = (Ponto){0, L};
-  Ponto p3 = (Ponto){L, L};
-  Ponto p4 = (Ponto){L, 0};
-  Ponto p5 = (Ponto){2*L, 0};
-  Ponto p6 = (Ponto){3*L, 0};
-  criarTile(imgObj(p1, origem));
-  criarTile(imgObj(p2, origem));
-  criarTile(imgObj(p3, origem));
-  criarTile(imgObj(p4, origem));
-  criarTile(imgObj(p5, origem));
-  criarTile(imgObj(p6, origem));
+  Ponto *pontos = (Ponto*)malloc(6*sizeof(ponto));
+  pontos[0] = (ponto){2*L,0*L};
+  pontos[1] = (ponto){0*L,3*L};
+  pontos[2] = (ponto){2*L,6*L};
+  pontos[3] = (ponto){5*L,6*L};
+  pontos[4] = (ponto){8*L,3*L};
+  pontos[5] = (ponto){6*L,1*L};
+  criarPoligono(6, pontos, azul);
+  // Ponto p1 = (Ponto){0, 0};
+  // Ponto p2 = (Ponto){0, L};
+  // Ponto p3 = (Ponto){L, L};
+  // Ponto p4 = (Ponto){L, 0};
+  // Ponto p5 = (Ponto){2*L, 0};
+  // Ponto p6 = (Ponto){3*L, 0};
+  // criarTile(imgObj(p1, origem));
+  // criarTile(imgObj(p2, origem));
+  // criarTile(imgObj(p3, origem));
+  // criarTile(imgObj(p4, origem));
+  // criarTile(imgObj(p5, origem));
+  // criarTile(imgObj(p6, origem));
 }
 
 void criarPoligono(int n, Ponto* pontos, cor c){
-
+  for(int i= 0; i < n-1; i++){
+    criarLinha(pontos[i], pontos[i+1], azul);
+  }
+  criarLinha(pontos[n-1], pontos[0], azul);
 }
 
 ponto imgObj(ponto pMundo, ponto origem) {
